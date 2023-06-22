@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Kaizen_final.Models.Farmer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+
+    table, th, td {
+        border: 1px solid;
+        border-collapse: collapse;
+        border-radius: 10px;
+    }
+
+    th, td {
+        background-color: red;
+    }
+
+</style>
+
+<body style="background-color:#526534;">
+
+    <h1 style="color:antiquewhite">Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="text-align:center; background-color:#8D9E6F; color:black">
+                    @Html.DisplayNameFor(model => model.farmerName)
+                </th>
+                <th style="text-align:center;background-color:#8D9E6F; color:black">
+                    @Html.DisplayNameFor(model => model.farmerEmail)
+                </th>
+                <th style="text-align:center;background-color:#8D9E6F; color:black">
+                    @Html.DisplayNameFor(model => model.farmerPhoneNumber)
+                </th>
+                <th style="text-align:center;background-color:#8D9E6F; color:black"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="background-color:#B2BDA0;color:#4D4D4D">
+                        @Html.DisplayFor(modelItem => item.farmerName)
+                    </td>
+                    <td style="background-color:#B2BDA0;color:#4D4D4D">
+                        @Html.DisplayFor(modelItem => item.farmerEmail)
+                    </td>
+                    <td style="background-color:#B2BDA0;color:#4D4D4D">
+                        @Html.DisplayFor(modelItem => item.farmerPhoneNumber)
+                    </td>
+                    <td style="background-color:#B2BDA0;">
+                        <a fdprocessedid="ite2ji" asp-action="Edit" asp-route-id="@item.farmerId">Edit</a> |
+                        <a fdprocessedid="ite2ji" asp-action="Details" asp-route-id="@item.farmerId">Details</a> |
+                        <a fdprocessedid="ite2ji" asp-action="Delete" asp-route-id="@item.farmerId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>

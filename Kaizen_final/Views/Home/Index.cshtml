@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<html >
+<body style="background-color:#B6BB85;">
+    <img alt="Girl in a jacket" style="width:1300px;height:180px;margin-left:auto;
+margin-right:auto;" src="~/images/greentea3.jpg" />
+  
+@*<img src="~/images/national geographic your shot1.jpg" />*@
+
+<div class="text-center">
+        <h1 class="display-4" style="color:antiquewhite;">Welcome to Kaizen </h1>
+        @*<p style="color: antiquewhite;">Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+
+
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style="width:500px;height:503px; margin-left:auto;margin-right:auto">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000" style="width:500px;height:503px;">
+                <img src="~/images/Green tea matcha powder featuring matcha, tea, and powder.jpg" class="d-block w-100" alt="..."
+                     style="width:500px;height:503px;">
+                <div class="carousel-caption d-none d-md-block" style="background-color:Background;">
+                    <h5>Matcha</h5>
+                    <p>The fresh grass and spinach with milky and creamy like tea is a Superfood powders designed to improve your health & well-being. Smoothie boosters. Vegan protein.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000" style="width:500px;height:503px;">
+                <img src="~/images/Green Tree tea farm in Taiwan.jpg" class="d-block w-100" alt="..." style="width:500px;height:503px;">
+                <div class="carousel-caption d-none d-md-block" style="background-color:Background;">
+                    <h5>Village of Ouchijuku. </h5>
+                    <p>This is here the Kaizen Green Tea farms are situated</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="width:500px;height:503px;">
+                <img src="~/images/How Green Tea is Grown in Japan.jpg" class="d-block w-100" alt="..." style="width:500px;height:503px;">
+                <div class="carousel-caption d-none d-md-block" style="background-color:Background;">
+                    <h5>Fresh Green Tea</h5>
+                    <p> Each Green Tea leave is hand picked from their plant and sundried in most cases in these handwoven Baskets</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+ 
+   </body>
+</html>

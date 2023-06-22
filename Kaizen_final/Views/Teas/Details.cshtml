@@ -1,0 +1,70 @@
+﻿@model Kaizen_final.Models.Tea
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<html>
+<style>
+    label {
+        color: #4D4D4D;
+    }
+
+</style>
+
+<body style="background-color:#EBEFE3">
+
+    <h2 style="text-align:center;color:#2F3B1C;">Choosen Tea Details</h2>
+
+@*<h1>Details</h1>*@
+
+<div>
+   @* <h4>Tea</h4>*@
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TeaName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeaName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TeaDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeaDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tea_Stock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tea_Stock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.picURL)
+        </dt>
+        <dd class = "col-sm-10">
+                <img src=" @Html.DisplayFor(model => model.picURL)" alt="teas" style="width:170px;height:200px;">
+           
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Farmer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Farmer.farmerId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TeaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+            </body>
+            </html>

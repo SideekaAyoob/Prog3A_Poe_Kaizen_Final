@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Kaizen_final.Models.Tea>
+
+@{
+    ViewData["Title"] = "farmersearch";
+}
+
+<html>
+<style>
+    
+
+</style>
+
+<body style="background-color:#B6BB85;">
+
+    <h2 style="text-align:center;color:#2F3B1C;">Search A farmers Tea</h2>
+
+
+@*<h1>farmersearch</h1>*@
+<form asp-controller="Teas" asp-action="farmersearch" method="get">
+    <p style="color:black;">
+        search by farmer  <input type="text" name="farmersearch"/>
+        <input type="submit" value="Search" class="btn btn-info" />
+        @*<a asp-action=" farmersearch"> remove filter</a>*@
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+            <tr style="text-align:center; background-color:#8D9E6F; color:black">
+                <th >
+                @Html.DisplayNameFor(model => model.TeaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeaDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tea_Stock)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.picURL)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Farmer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+                <tr style="background-color:#B2BDA0;color:#4D4D4D">
+            <td>
+                @Html.DisplayFor(modelItem => item.TeaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeaDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tea_Stock)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.picURL)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Farmer.farmerName)
+            </td>
+            <td>
+               @* <a asp-action="Edit" asp-route-id="@item.TeaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TeaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TeaId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+                </body>
+                </html>

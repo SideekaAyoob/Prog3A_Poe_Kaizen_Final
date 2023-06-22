@@ -1,0 +1,48 @@
+﻿@model Kaizen_final.Models.Farmer
+
+@{
+    ViewData["Title"] = "Details";
+}
+<html>
+<style>
+    label {
+        color: #4D4D4D;
+    }
+
+</style>
+
+<body style="background-color:#EBEFE3;">
+
+    <h2 style="text-align:center;color:#2F3B1C;">Farmer Details</h2>
+@*<h1>Details</h1>*@
+
+<div>
+   @* <h4>Farmer</h4>*@
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.farmerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.farmerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.farmerEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.farmerEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.farmerPhoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.farmerPhoneNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.farmerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+    </html>

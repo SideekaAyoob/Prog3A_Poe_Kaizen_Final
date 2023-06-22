@@ -1,0 +1,69 @@
+﻿@model Kaizen_final.Models.Tea
+
+@{
+    ViewData["Title"] = "Create";
+}
+<html>
+<style>
+    label {
+        color: #4D4D4D;
+    }
+
+</style>
+
+<body style="background-color:#B6BB85;">
+
+    <h2 style="text-align:center;color:#2F3B1C;">Add Tea</h2>
+@*<h1>Create</h1>
+
+<h4>Tea</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TeaName" class="control-label"></label>
+                <input asp-for="TeaName" class="form-control" />
+                <span asp-validation-for="TeaName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeaDescription" class="control-label"></label>
+                <input asp-for="TeaDescription" class="form-control" />
+                <span asp-validation-for="TeaDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tea_Stock" class="control-label"></label>
+                <input asp-for="Tea_Stock" class="form-control" />
+                <span asp-validation-for="Tea_Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="picURL" class="control-label"></label>
+                <input asp-for="picURL" class="form-control" />
+                <span asp-validation-for="picURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="farmerid" class="control-label"></label>
+                <select asp-for="farmerid" class ="form-control" asp-items="ViewBag.farmerid"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

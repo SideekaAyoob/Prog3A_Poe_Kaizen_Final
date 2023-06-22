@@ -1,0 +1,225 @@
+﻿@model IEnumerable<Kaizen_final.Models.Tea>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<html style="align-content:center; align-items:center;align-self:center;">
+
+<style>
+    /*  .card {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 40%;
+            }*/
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 2px 16px;
+    }
+
+    .card {
+        flex-direction: column;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 5px; /* 5px rounded corners */
+        align-content: center
+    }
+
+    /* Add rounded corners to the top left and the top right corner of the image */
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .flip-card {
+        flex-direction: column;
+        background-color: transparent;
+        width: 300px;
+        height: 300px;
+        border: 1px solid #f1f1f1;
+        border-radius: 5px; /* 5px rounded corners */
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        flex-direction: column;
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+        border-radius: 5px; /* 5px rounded corners */
+        background-color: #EBEFE3;
+        color: black;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+        border-radius: 5px; /* 5px rounded corners */
+        background-color:#2F3B1C;
+        color: white;
+        transform: rotateY(180deg);
+    }
+
+    button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .button:hover {
+        opacity: 0.7;
+    }
+</style>
+<body style="background-color:#526534; ">
+
+    <h1 style="color:antiquewhite">Tea Repository</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Teas" asp-action="Index" method="get">
+    <p>
+        Tea Name: <input type="text" name="searchString" />
+            <input type="submit" value="Filter" class="btn btn-primary" />
+            @*<input type="submit" value="Create"/>*@
+    </p>
+</form>
+
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeaDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tea_Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.picURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Farmer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeaDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tea_Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.picURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Farmer.farmerId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TeaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TeaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TeaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+    <div class="row">
+    <div class="col-md-4">
+    <section>
+    <img src="~/images/farmers.jpg" style="width:300px;height:300px;" />
+    </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+    <section>
+
+*@
+
+@*<div style="display:flex">*@
+  @*  <div class="flex-container">*@
+    <div >
+         @foreach (var tea in Model)
+    {
+
+            <div class="flip-card" style=" margin-left:auto;
+         margin-right: auto">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    @*<h4><b>@tea.TeaName</b></h4>*@
+                    @*<img src="@Sweet.ImageUrl" alt="Image for sweet shop" width="160" height="100" />*@
+                    <img src="@tea.picURL" alt="Avatar" style="width:170px;height:200px;">
+
+                </div>
+                <div class="flip-card-back">
+                    <p>@tea.TeaName</p>
+                    <p>Per 100g: R @tea.Price</p>
+                    <p>Stock :@tea.Tea_Stock<p/>
+                    <p>
+                        @* <a asp-controller="Season" asp-action="List2"> yes</a>
+                    <button>Update Stock</button>*@
+                    </p>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@tea.TeaId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@tea.TeaId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@tea.TeaId">Delete</a>
+                    </td>
+                </div>
+            </div>
+        </div>
+            <br></br>
+        
+    }
+    </div>
+
+</body>
+</html>
